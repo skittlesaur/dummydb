@@ -1,0 +1,53 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 1em 2em;
+}
+
+.wrapper h2 {
+    align-self: center;
+    text-decoration: underline var(--SPRING_GREEN) 1px;
+    text-underline-offset: 2px;
+}
+
+.user-schema {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.user-schema .schema-item:first-of-type {
+    color: var(--QUITE_DARKER_GRAY);
+    font-weight: 500;
+    font-size: .9rem;
+}
+
+.schema-item {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(2, 1fr) .1fr;
+    column-gap: 1em;
+    align-items: center;
+}
+
+.add-field {
+    align-self: center;
+    width: 10em;
+}
+
+.delete {
+    --SIZE: 1em;
+    width: var(--SIZE);
+    height: var(--SIZE);
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.delete:hover {
+    filter: brightness(1.5);
+}
+
+.type {
+    cursor: pointer;
+}
