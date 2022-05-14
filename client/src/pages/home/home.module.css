@@ -134,11 +134,6 @@
     font-family: 'Roboto', sans-serif;
     background: var(--LIGHTER_DARK_SPRING);
     padding: 1em;
-    --HEIGHT: 4em;
-    min-height: var(--HEIGHT);
-    max-height: var(--HEIGHT);
-    display: flex;
-    align-items: center;
     border-radius: 5px;
     transition: 0.3s all ease-in-out;
 }
