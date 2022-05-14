@@ -90,6 +90,7 @@
     scroll-snap-align: start;
     text-align: center;
     color: var(--GRAY);
+    cursor: pointer;
 }
 
 .github-tabs:before, .github-tabs:after {
