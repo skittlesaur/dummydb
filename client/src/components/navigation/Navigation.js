@@ -10,7 +10,7 @@ const Navigation = () => {
                 <Link className={'btn2'} to={'/releases'}>Releases</Link>
                 <Link className={'btn2'} to={'/contribute'}>Contribute</Link>
             </nav>
-            <Link to={'/'} className={`btn1`}>Generate</Link>
+            <Link to={'/'} className={`btn1 btn1-b`}>Generate</Link>
         </div>
     );
 }
