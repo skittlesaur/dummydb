@@ -11,7 +11,7 @@
 }
 
 .info {
-    padding: 2em 5em;
+    padding: 2em 3em;
     display: flex;
     flex-direction: column;
     gap: 1.5em;
