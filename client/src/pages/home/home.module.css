@@ -142,3 +142,20 @@
 .item:hover {
     color: var(--SEA_GREEN);
 }
+
+.open, .closed {
+    --SIZE: .5em;
+    width: var(--SIZE);
+    height: var(--SIZE);
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: .5em;
+}
+
+.open {
+    background: var(--YELLOW);
+}
+
+.closed {
+    background: var(--SPRING_GREEN);
+}

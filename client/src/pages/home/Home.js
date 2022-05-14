@@ -1,8 +1,30 @@
 import styles from './home.module.css';
 import {Link} from "react-router-dom";
 import GitHubIcon from '../../shared/assets/github.png';
+import {useDispatch, useSelector} from "react-redux";
+import {fetchIssues, fetchReleases, fetchRequests} from "../../actions/github";
+import {useEffect, useState} from "react";
+import {FETCH_ISSUES, FETCH_RELEASES, FETCH_REQUESTS} from "../../constants/github";
 
 const Home = () => {
+    const dispatch = useDispatch();
+    const [githubMode, setGithubMode] = useState(FETCH_RELEASES);
+    const data = useSelector(state => state.github);
+
+    useEffect(() => {
+        switch (githubMode) {
+            case FETCH_RELEASES:
+                dispatch(fetchReleases);
+                break;
+            case FETCH_REQUESTS:
+                dispatch(fetchRequests);
+                break;
+            case FETCH_ISSUES:
+                dispatch(fetchIssues);
+                break;
+        }
+    }, [githubMode]);
+
     return (
         <div className={styles['wrapper']}>
             <div className={styles['info']}>
@@ -22,21 +44,20 @@ const Home = () => {
                     </div>
                     <div className={styles['github-tabs']}>
                         <div className={styles['tab-scroll']}>
-                            <div className={`mono + ${styles['active']}`}>Releases</div>
-                            <div className={'mono'}>Requests</div>
-                            <div className={'mono'}>Releases</div>
-                            <div className={'mono'}>Releases</div>
+                            <div onClick={() => setGithubMode(FETCH_RELEASES)}
+                                 className={`mono ${githubMode === FETCH_RELEASES && styles['active']}`}>Releases
+                            </div>
+                            <div onClick={() => setGithubMode(FETCH_REQUESTS)}
+                                 className={`mono ${githubMode === FETCH_REQUESTS && styles['active']}`}>Requests
+                            </div>
+                            <div onClick={() => setGithubMode(FETCH_ISSUES)}
+                                 className={`mono ${githubMode === FETCH_ISSUES && styles['active']}`}>Issues
+                            </div>
                         </div>
                     </div>
                     <div className={styles['content']}>
-                        <a href={'https://github.com/'} className={styles['item']}>German language and spelling corrections</a>
-                        <div className={styles['item']}>German language and spelling corrections</div>
-                        <div className={styles['item']}>German language and spelling corrections</div>
-                        <div className={styles['item']}>German language and spelling corrections</div>
-                        <div className={styles['item']}>German language and spelling corrections</div>
-                        <div className={styles['item']}>German language and spelling corrections</div>
-                        <div className={styles['item']}>German language and spelling corrections</div>
-                        <div className={styles['item']}>German language and spelling corrections</div>
+                        {data.map((item, i) =>
+                            <a key={i} href={'https://github.com/'} className={styles['item']}>{item.state && <span className={styles[item.state]}/>}{item.title}</a>)}
                     </div>
                 </div>
             </div>
