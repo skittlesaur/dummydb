@@ -150,6 +150,7 @@
     display: inline-block;
     border-radius: 50%;
     margin-right: .5em;
+    margin-bottom: 2px;
 }
 
 .open {
