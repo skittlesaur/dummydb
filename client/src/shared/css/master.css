@@ -34,7 +34,11 @@ h1 {
     margin-bottom: 1em;
 }
 
-a, a:before, a:after, .mono {
+h2 {
+    font-weight: 400;
+}
+
+a, a:before, a:after, .mono, h2 {
     font-family: 'JetBrains Mono', monospace;
 }
 
