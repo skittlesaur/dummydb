@@ -19,10 +19,6 @@ body {
     background: black;
 }
 
-#root {
-    height: 500vh;
-}
-
 a {
     text-decoration: none;
     cursor: pointer;
@@ -42,7 +38,7 @@ a, a:before, a:after {
     transition: var(--TRANSITION_TIME) all ease-in-out;
 }
 
-.btn1:hover{
+.btn1:hover {
     background: var(--SPRING_GREEN);
     color: var(--ALMOST_BLACK);
 }
@@ -74,4 +70,12 @@ a, a:before, a:after {
 .btn2:hover {
     background: var(--SPRING_GREEN);
     color: black;
+}
+
+
+@media screen and (min-width: 1024px) {
+    #root {
+        max-width: 1300px;
+        margin: auto;
+    }
 }
