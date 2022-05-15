@@ -3,6 +3,7 @@ import basic from "../data/types/basic.js";
 import ValueParser from "./types/ValueParser.js";
 import CSVFormatter from "./formatter/CSVFormatter.js";
 import JSONFormatter from "./formatter/JSONFormatter.js";
+import output from "../data/output.js";
 
 export const getCategories = async (req, res) => {
     res.status(200).json({
@@ -25,6 +26,10 @@ export const getType = async (req, res) => {
     res.status(200).json({
         data: dataArr()
     });
+}
+
+export const getOutputFormats = async (req, res) => {
+    res.status(200).json(output);
 }
 
 export const generateData = async (req, res) => {
