@@ -96,3 +96,13 @@
 .types-wrapper:hover .type:not(:hover) {
     opacity: .6;
 }
+
+@media screen and (min-width: 1024px) {
+    .categories{
+        grid-auto-columns: calc(100% / 4.8);
+    }
+
+    .types-wrapper {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
