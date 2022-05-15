@@ -57,7 +57,9 @@ const Home = () => {
                     </div>
                     <div className={styles['content']}>
                         {data.map((item, i) =>
-                            <a key={i} href={'https://github.com/'} className={styles['item']}>{item.state && <span className={styles[item.state]}/>}{item.title}</a>)}
+                            githubMode === FETCH_RELEASES ? <a href={item.html_url} target={'_blank'} className={styles['item']}><span className={styles['tag']}>{item.tag_name}</span> {item.name}</a> :
+                                <a key={i} href={item.html_url} target={'_blank'} className={styles['item']}>{item.state &&
+                                    <span className={styles[item.state]}/>}{item.title}</a>)}
                     </div>
                 </div>
             </div>
