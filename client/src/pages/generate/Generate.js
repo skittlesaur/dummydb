@@ -8,6 +8,8 @@ const Generate = () => {
         {field: "", type: "Type"}
     ]);
     const [typeSelect, setTypeSelect] = useState({visible: false});
+    const [output, setOutput] = useState("JSON");
+    const outputs = ["JSON", "SQL"];
 
     const handleAddField = () => {
         const field = {field: '', type: 'Type'};
@@ -53,6 +55,13 @@ const Generate = () => {
                         </div>)}
                 </div>
                 <div onClick={handleAddField} className={`btn1 btn1-b ${styles[`add-field`]}`}>Add Field</div>
+                <div className={styles['submission']}>
+                    <div className={styles['options']}>
+                        {outputs.map((item, i) => <div key={i} onClick={() => setOutput(item)}
+                                                       className={`btn2 ${output === item && styles['active']}`}>{item}</div>)}
+                    </div>
+                    <div className={`btn1 btn1-g mono ${styles['generate']}`}>Generate Data</div>
+                </div>
             </div>
         </>
     );

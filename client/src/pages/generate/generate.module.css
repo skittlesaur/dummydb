@@ -58,3 +58,46 @@
     font-size: .8rem;
     color: var(--QUITE_DARKER_GRAY);
 }
+
+.submission {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.options > *:not(.active) {
+    opacity: .7;
+}
+
+.options > *:before, .options > *:after {
+    color: var(--GRAY);
+}
+
+.options > *:hover {
+    background: transparent;
+    color: white;
+    opacity: .9;
+}
+
+.options .active:after, .options .active:before {
+    color: var(--SEA_GREEN);
+}
+
+.options .active:hover {
+    background: transparent;
+}
+
+.generate {
+    align-self: center;
+    width: 15em;
+}
