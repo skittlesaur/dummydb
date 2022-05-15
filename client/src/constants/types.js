@@ -1,0 +1,2 @@
+export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
+export const FETCH_TYPES = 'FETCH_TYPES';

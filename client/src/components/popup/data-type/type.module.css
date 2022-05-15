@@ -1,0 +1,108 @@
+.wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5em;
+    padding: 1.5em 0;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: .5em 0;
+    z-index: 2;
+}
+
+.categories {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc(100% / 3.8);
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior: contain;
+    scroll-snap-type: inline mandatory;
+    padding: .75em 0;
+}
+
+.categories::-webkit-scrollbar {
+    display: none;
+}
+
+.category {
+    scroll-snap-align: start;
+    text-align: center;
+    cursor: pointer;
+    font-size: .9rem;
+    color: var(--QUITE_DARKER_GRAY);
+    transition: .2s all ease-in-out;
+}
+
+.active-category {
+    color: black;
+    text-decoration: underline 1px var(--SPRING_GREEN);
+    text-underline-offset: 1px;
+}
+
+.types-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 1em;
+    padding: 1em 2em;
+}
+
+.type {
+    --TRANSITION: 0.3s all ease-in-out;
+    background: var(--DARKER_WHITE);
+    border-radius: 5px;
+    padding: .5em 1em;
+    cursor: pointer;
+    transition: var(--TRANSITION);
+}
+
+.type-title {
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: .25em;
+    transition: var(--TRANSITION);
+}
+
+.type-example {
+    font-size: .8rem;
+    color: var(--ACTUALLY_PERFET_GRAY);
+    transition: var(--TRANSITION);
+}
+
+.type:hover {
+    outline: 1px solid var(--REALLY_DARK_SPRING);
+}
+
+.type:hover .type-example {
+    color: var(--LIGHTER_DARK_SPRING);
+}
+
+.type:hover .type-title {
+    color: var(--REALLY_DARK_SPRING);
+}
+
+.types-wrapper:hover .type:not(:hover) {
+    opacity: .6;
+}
+
+@media screen and (min-width: 1024px) {
+    .categories{
+        grid-auto-columns: calc(100% / 4.8);
+    }
+
+    .types-wrapper {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
