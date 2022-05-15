@@ -25,7 +25,6 @@ const Type = ({typeSelect, setTypeSelect}) => {
         const dataArr = typeSelect.data;
         const element = dataArr[typeSelect.i];
         dataArr[typeSelect.i] = {...element, type: selected};
-        setTypeSelect(dataArr);
         setHide(true);
     }
 
