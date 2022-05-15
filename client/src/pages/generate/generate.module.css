@@ -50,4 +50,11 @@
 
 .type {
     cursor: pointer;
+    padding: .25em .5em;
+    border-radius: 5px;
+    border: none;
+    background: black;
+    outline: 1px solid var(--QUITE_DARKER_GRAY);
+    font-size: .8rem;
+    color: var(--QUITE_DARKER_GRAY);
 }
