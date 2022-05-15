@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const GITHUB_API = axios.create({baseURL: "https://api.github.com/repos/skittlesaur/dummydb"});
-const API = axios.create({baseURL: "http://192.168.1.6:3075/"});
+const API = axios.create({baseURL: "https://dummydb-server.vercel.app/"});
 
 export const fetchGithubReleases = () => GITHUB_API.get('releases?state=all')
 export const fetchGithubRequests = () => GITHUB_API.get('pulls?state=all')
