@@ -4,6 +4,7 @@ import ValueParser from "./types/ValueParser.js";
 import CSVFormatter from "./formatter/CSVFormatter.js";
 import JSONFormatter from "./formatter/JSONFormatter.js";
 import output from "../data/output.js";
+import business from "../data/types/business.js";
 
 export const getCategories = async (req, res) => {
     res.status(200).json({
@@ -18,8 +19,10 @@ export const getType = async (req, res) => {
         switch (type?.toUpperCase()) {
             case "BASIC":
                 return basic;
+            case "BUSINESS":
+                return business;
             default:
-                return [...basic];
+                return [...basic, ...business];
         }
     };
 

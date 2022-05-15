@@ -6,7 +6,7 @@ import {getCategories, getTypes} from "../../../actions/types";
 
 const Type = ({typeSelect, setTypeSelect}) => {
     const dispatch = useDispatch();
-    const categories = ["All", useSelector(state => state.types.categories)];
+    const categories = ["All"].concat(useSelector(state => state.types.categories));
     const data = useSelector(state => state.types.data);
     const [activeCategory, setActiveCategory] = useState('All');
     const [hide, setHide] = useState(false);
