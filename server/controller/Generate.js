@@ -28,16 +28,21 @@ export const getType = async (req, res) => {
 }
 
 export const generateData = async (req, res) => {
-    const {type, data} = req.body;
-    const fields = JSON.parse(data);
+    try {
+        const {type, data} = req.body;
+        const n = parseInt(req.query.n) || 10;
 
-    const n = parseInt(req.query.n) || 10;
-
-    const records = generateRecords(fields, n);
-    const result = convertArray(type, records);
-    res.status(200).json({
-        result
-    })
+        const records = generateRecords(data, n);
+        const result = convertArray(type, records);
+        res.status(200).json({
+            headers: records[0],
+            json: JSONFormatter(records),
+            raw: result
+        })
+    } catch (e) {
+        console.log(e);
+        res.status(400).json({message: e.message});
+    }
 }
 
 const generateRecords = (fields, n) => {
@@ -61,7 +66,7 @@ const generateRecords = (fields, n) => {
 const convertArray = (type, records) => {
     switch (type.toUpperCase()) {
         case "JSON":
-            return JSONFormatter(records);
+            return JSON.stringify(JSONFormatter(records));
         case "CSV":
             return CSVFormatter(records);
     }

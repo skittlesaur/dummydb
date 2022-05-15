@@ -2,14 +2,16 @@ import styles from './generate.module.css';
 import {useState} from "react";
 import DeleteImage from '../../shared/assets/delete.png';
 import Type from "../../components/popup/data-type/Type";
+import {useNavigate} from "react-router-dom";
 
 const Generate = () => {
+    const navigate = useNavigate()
     const [data, setData] = useState([
         {field: "", type: "Type"}
     ]);
     const [typeSelect, setTypeSelect] = useState({visible: false});
     const [output, setOutput] = useState("JSON");
-    const outputs = ["JSON", "SQL"];
+    const outputs = ["JSON", "SQL", "CSV"];
 
     const handleAddField = () => {
         const field = {field: '', type: 'Type'};
@@ -32,6 +34,15 @@ const Generate = () => {
 
     const handleTypeSelection = (i) => {
         setTypeSelect({visible: true, data: data, i: i});
+    }
+
+    const handleGenerating = () => {
+        navigate('/result', {
+            state: {
+                type: output,
+                fields: data
+            }
+        })
     }
 
     return (
@@ -60,7 +71,8 @@ const Generate = () => {
                         {outputs.map((item, i) => <div key={i} onClick={() => setOutput(item)}
                                                        className={`btn2 ${output === item && styles['active']}`}>{item}</div>)}
                     </div>
-                    <div className={`btn1 btn1-g mono ${styles['generate']}`}>Generate Data</div>
+                    <div onClick={handleGenerating} className={`btn1 btn1-g mono ${styles['generate']}`}>Generate Data
+                    </div>
                 </div>
             </div>
         </>
