@@ -16,6 +16,7 @@
     align-items: center;
     flex-direction: column;
     padding: .5em 0;
+    z-index: 2;
 }
 
 .categories {
@@ -28,7 +29,7 @@
     overflow-y: hidden;
     overscroll-behavior: contain;
     scroll-snap-type: inline mandatory;
-    padding: .5em 0;
+    padding: .75em 0;
 }
 
 .categories::-webkit-scrollbar {
