@@ -4,16 +4,16 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import generate from "./routes/generate.js";
 
-const app = express();
+const index = express();
 dotenv.config();
 
-app.use(bodyParser.json({extended: true}));
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(cors());
+index.use(bodyParser.json({extended: true}));
+index.use(bodyParser.urlencoded({extended: true}));
+index.use(cors());
 
-app.use('/generate', generate);
+index.use('/generate', generate);
 
-app.get('/', (req, res) => {
+index.get('/', (req, res) => {
     res.json({
         title: "Dummy Database API",
         version: process.env.npm_package_version
@@ -21,4 +21,4 @@ app.get('/', (req, res) => {
 });
 
 const PORT = process.env.PORT;
-app.listen(PORT, () => console.log(`Server listening on port ${PORT}`))
+index.listen(PORT, () => console.log(`Server listening on port ${PORT}`))
