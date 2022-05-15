@@ -1,4 +1,4 @@
-import random from "../GetRandom.js";
+import {random, randomN} from "../GetRandom.js";
 
 export const getBlank = () => {
     return null;
@@ -20,12 +20,12 @@ export const getDateTime = () => {
 
 export const getEncryptedText = (n = 64) => {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    return randomString(n, characters);
+    return randomN(n, characters);
 }
 
 export const getHexColor = () => {
     const characters = '0123456789ABCDEF';
-    return randomString(6, characters);
+    return randomN(6, characters);
 }
 
 export const getInteger = () => {
@@ -43,17 +43,9 @@ export const getNumber = () => {
 export const getPassword = () => {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+';
     const length = Math.random() * 10 + 5;
-    return randomString(length, characters);
+    return randomN(length, characters);
 }
 
 export const getTimestamp = () => {
     return Math.round(+getDateTime() / 1000);
-}
-
-const randomString = (n, characters) => {
-    let result = '';
-    for (let i = 0; i < n; i++) {
-        result += random(characters);
-    }
-    return result
 }

@@ -7,6 +7,13 @@ import {
     getHexColor, getInteger, getMongoDbObjectId,
     getNumber, getPassword, getTimestamp
 } from "./BasicController.js";
+import {
+    getCompanyName,
+    getCorporateDepartment,
+    getCreditCardNumber,
+    getCreditCardType,
+    getCurrency, getCurrencyCode
+} from "./BusinessController.js";
 
 const getValue = (type) => {
     switch (type.toLowerCase()) {
@@ -32,6 +39,19 @@ const getValue = (type) => {
             return getPassword();
         case "time":
             return getTimestamp();
+
+        case "company name":
+            return getCompanyName();
+        case "corporate department":
+            return getCorporateDepartment();
+        case "credit card number":
+            return getCreditCardNumber();
+        case "credit card type":
+            return getCreditCardType();
+        case "currency":
+            return getCurrency();
+        case "currency code":
+            return getCurrencyCode();
     }
 }
 

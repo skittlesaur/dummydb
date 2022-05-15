@@ -1,5 +1,6 @@
 const categories = [
-    "Basic"
+    "Basic",
+    "Business"
 ]
 
 export default categories;
