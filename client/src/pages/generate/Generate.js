@@ -1,8 +1,10 @@
 import styles from './generate.module.css';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import DeleteImage from '../../shared/assets/delete.png';
 import Type from "../../components/popup/data-type/Type";
 import {useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchOutput} from "../../actions/generate";
 
 const Generate = () => {
     const navigate = useNavigate()
@@ -11,7 +13,12 @@ const Generate = () => {
     ]);
     const [typeSelect, setTypeSelect] = useState({visible: false});
     const [output, setOutput] = useState("JSON");
-    const outputs = ["JSON", "SQL", "CSV"];
+    const dispatch = useDispatch();
+    const outputs = useSelector(state => state.generate);
+
+    useEffect(() => {
+        dispatch(fetchOutput);
+    }, [])
 
     const handleAddField = () => {
         const field = {field: '', type: 'Type'};
@@ -45,6 +52,9 @@ const Generate = () => {
         })
     }
 
+    if (!outputs || !outputs.length)
+        return <></>
+
     return (
         <>
             {typeSelect?.visible && <Type typeSelect={typeSelect} setTypeSelect={setTypeSelect}/>}
@@ -68,8 +78,8 @@ const Generate = () => {
                 <div onClick={handleAddField} className={`btn1 btn1-b ${styles[`add-field`]}`}>Add Field</div>
                 <div className={styles['submission']}>
                     <div className={styles['options']}>
-                        {outputs.map((item, i) => <div key={i} onClick={() => setOutput(item)}
-                                                       className={`btn2 ${output === item && styles['active']}`}>{item}</div>)}
+                        {outputs?.map((item, i) => <div key={i} onClick={() => setOutput(item)}
+                                                        className={`btn2 ${output === item && styles['active']}`}>{item}</div>)}
                     </div>
                     <div onClick={handleGenerating} className={`btn1 btn1-g mono ${styles['generate']}`}>Generate Data
                     </div>

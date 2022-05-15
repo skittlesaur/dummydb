@@ -1,1 +1,2 @@
+export const FETCH_OUTPUT = 'FETCH_OUTPUT';
 export const CREATE_RECORDS = 'CREATE_RECORDS';

@@ -9,4 +9,5 @@ export const fetchGithubIssues = () => GITHUB_API.get('issues?state=all');
 
 export const fetchCategories = () => API.get('generate/types');
 export const fetchType = (type) => API.get(`generate/types/${type}`);
+export const fetchOutputs = () => API.get('generate/output');
 export const createRecords = (n, type, data) => API.post(`generate?n=${n}`, {type, data});
