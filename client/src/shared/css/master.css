@@ -5,6 +5,7 @@
     --LIGHTER_DARK_SPRING: #082222;
     --REALLY_DARK_SPRING: #0d1418;
     --SEA_GREEN: #3DFFDB;
+    --DARKER_WHITE: #ececec;
     --GRAY: #d0d0d0;
     --QUITE_DARKER_GRAY: #9f9f9f;
     --ACTUALLY_PERFET_GRAY: #2c3033;
@@ -34,8 +35,29 @@ h1 {
     margin-bottom: 1em;
 }
 
-a, a:before, a:after, .mono {
+h2 {
+    font-weight: 400;
+}
+
+a, a:before, a:after, .mono, h2 {
     font-family: 'JetBrains Mono', monospace;
+}
+
+input {
+    padding: .25em .5em;
+    border-radius: 5px;
+    border: none;
+    background: black;
+    color: white;
+    outline: 1px solid var(--QUITE_DARKER_GRAY);
+}
+
+::placeholder{
+    color: var(--QUITE_DARKER_GRAY);
+}
+
+input:focus-visible {
+    outline: 2px solid var(--SPRING_GREEN);
 }
 
 .btn1 {
@@ -46,6 +68,8 @@ a, a:before, a:after, .mono {
     border: 1px solid var(--SPRING_GREEN);
     transition: var(--TRANSITION_TIME) all ease-in-out;
     display: inline-block;
+    cursor: pointer;
+    text-align: center;
 }
 
 .btn1-b {
@@ -75,6 +99,8 @@ a, a:before, a:after, .mono {
     padding: 0 .75em;
     transition: var(--TRANSITION_TIME) all ease-in-out;
     display: inline-block;
+    cursor: pointer;
+    text-align: center;
 }
 
 .btn2:before, .btn2:after {
